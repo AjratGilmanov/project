@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
 
+from .models import Book
 
 class RegistrFrom(UserCreationForm):
     username = forms.CharField(
@@ -45,4 +46,15 @@ class Entrance(AuthenticationForm):
             attrs={'class': 'contaner__form_InputPassword input', 'placeholder': 'Password'}
         )
     )
+
+
+class Application(forms.ModelForm):
+    date_of_create = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+
+    class Meta:
+        model = Book
+        fields = '__all__'
+        widgets = {
+            'book_name': forms.Textarea(attrs={'class': 'your_class'}), # и так далее
+        }
 

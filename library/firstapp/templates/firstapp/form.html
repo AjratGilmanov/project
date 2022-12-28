@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <form method="POST">
+        {% csrf_token %}
+        <tp>
+            {{form.as_p}}
+        </tp>
+        <button type="submit">Press</button>
+    </form>
+    {% else %}
+    <h2>Please <a href="{% url 'login' %}">login</a></h2>
+    {% endif %}
+</body>
+</html>
