@@ -1,3 +1,4 @@
+
 from django.contrib.auth.views import LoginView
 from django.shortcuts import render
 
@@ -51,6 +52,7 @@ class Log(LoginView):
 
     def get_context_data(self, form=form_class, **kwargs):
         return {'form': form, 'title': 'Entrance'}
+
 
 
 
