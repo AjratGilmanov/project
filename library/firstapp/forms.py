@@ -2,6 +2,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django import forms
 
+from .models import Book
 
 class RegistrFrom(UserCreationForm):
     username = forms.CharField(
@@ -45,4 +46,10 @@ class Entrance(AuthenticationForm):
             attrs={'class': 'contaner__form_InputPassword input', 'placeholder': 'Password'}
         )
     )
+
+
+class Application(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = '__all__'
 
