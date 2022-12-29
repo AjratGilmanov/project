@@ -6,7 +6,11 @@
 </head>
 <body>
       {% for i in Books %}
-        <p>{{i.book_name}}</p>
+        <p>{{i.book_name}}, {{i.book_author}}, {{i.date_of_create}}</p>
+        {% for j in i.category.all %}
+            <p>{{j}}</p>
+        {% endfor %}
+        <a href="edit/{{i.id}}">Edit</a> | <a href="delete/{{i.id}}">Delete</a>
       {% endfor %}
     {{user}}
 

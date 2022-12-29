@@ -55,6 +55,6 @@ class Application(forms.ModelForm):
         model = Book
         fields = '__all__'
         widgets = {
-            'book_name': forms.Textarea(attrs={'class': 'your_class'}), # и так далее
+            'book_name': forms.TextInput(attrs={'class': 'your_class'}), # и так далее
         }
 
