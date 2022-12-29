@@ -1,0 +1,163 @@
+@import url("https://fonts.googleapis.com/css2?family=Alex+Brush&family=Italianno&family=Montserrat&family=Oxygen&family=Pinyon+Script&display=swap");
+@font-face {
+  font-family: "brush script";
+  src: url("../fonts/brushscript.otf");
+}
+@font-face {
+  font-family: "Wolfgang Amadeus Mozart";
+  src: url("../fonts/Wolfgang Amadeus Mozart.ttf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button, input[type=submit] {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h5, h6 {
+  font-family: "Wolfgang Amadeus Mozart", serif;
+}
+
+h2 {
+  font-size: 54px;
+}
+
+h3 {
+  font-size: 48px;
+}
+
+body {
+  background: #ffeeee;
+}
+
+.header {
+  background: black;
+  color: white;
+  padding: 20px 130px;
+  font-size: 18px;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__navigation__list {
+  display: flex;
+  gap: 20px;
+}
+.header__navigation__list__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__navigation__list__item::after {
+  content: "";
+  display: block;
+  background: white;
+  width: 100%;
+  height: 1px;
+  border-radius: 10px;
+  position: relative;
+  top: 4px;
+  transition: 0.3s;
+  opacity: 0;
+}
+.header__navigation__list__item:hover::after {
+  opacity: 1;
+}
+
+.select-to-hide {
+  display: none;
+}
+
+.filter_select {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 200px;
+}
+.filter_select__list {
+  display: flex;
+  position: absolute;
+  flex-direction: column;
+  -webkit-animation: 0.3s select_list_disappear ease-out;
+          animation: 0.3s select_list_disappear ease-out;
+  max-height: 0;
+  overflow-y: scroll;
+}
+.filter_select__list__item {
+  padding: 15px;
+}
+.filter_select__list__item:hover {
+  background: #eee;
+}
+.filter_select-selected, .filter_select__list {
+  background: white;
+  font-size: 16px;
+  width: 100%;
+  transition: 0.3s;
+}
+.filter_select-selected {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+}
+.filter_select-selected::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: black;
+}
+.filter_select-selected:hover + .filter_select__list, .filter_select__list:hover {
+  max-height: 400px;
+}
+
+.books-filter {
+  display: none;
+}
+
+.books_list {
+  display: flex;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+.books_list__item {
+  max-width: 300px;
+  border: 2px solid rgba(0, 0, 0, 0.3764705882);
+}
+
+.order_form__unlogined__login_link {
+  display: inline-block;
+}
+.order_form__unlogined__login_link::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: black;
+  position: relative;
+  top: 4px;
+}

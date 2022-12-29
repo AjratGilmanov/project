@@ -6,9 +6,9 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 from django.urls import reverse_lazy, reverse
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, View
 
-from .forms import Application
+from .forms import Application, Form_zakaz
 from .forms import *
 from .models import Book, Category, Author
 
@@ -22,11 +22,21 @@ class Index(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['Books'] = Book.objects.all()
+        context['books'] = Book.objects.all()
+        context['categories'] = Category.objects.all()
         return context
 
-
-class Form(CreateView):
+class Form_order(View):
+    def get(self, request, flag=False,  *agrs, **kwagrs):
+        form = Form_zakaz()
+        return render(request, 'firstapp/form_order.html', {'form': form, 'flag': flag})
+    
+    def post(self, request, *agrs, **kwagrs):
+        form = Form_zakaz(request.POST)
+        if form.is_valid():
+            return render(request, 'firstapp/form_ok.html', {'name': form.cleaned_data['name'], 'name_book': form.cleaned_data['name_book'], 'time_from': form.cleaned_data['time_from'], 'time_to': form.cleaned_data['time_to']})
+        return self.get(request, True)
+class Form_create_book(CreateView):
     form_class = Application
     template_name = 'firstapp/form.html'
     success_url = reverse_lazy('home')

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Edit</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script defer src="{% static 'script/script.js' %}"></script>
 </head>
 <body>
+  {% include 'firstapp/blocks/header.html' %}
+  
   <form method="post">
       {% csrf_token %}
       {{ form.as_p }}

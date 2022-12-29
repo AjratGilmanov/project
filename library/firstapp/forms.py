@@ -55,6 +55,13 @@ class Application(forms.ModelForm):
         model = Book
         fields = '__all__'
         widgets = {
-            'book_name': forms.TextInput(attrs={'class': 'your_class'}), # и так далее
+            'book_author':forms.Select(attrs={'class':'select_custom'}),
         }
 
+
+class Form_zakaz(forms.Form):
+    CHOICE_BOOK = [(i.id, i.book_name) for i in Book.objects.all()]
+    name_book = forms.ChoiceField(choices=CHOICE_BOOK, label='Books', widget=forms.Select(attrs={'class':'select_custom'}))
+    time_from = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    time_to = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    name = forms.CharField(max_length=255, label='Name')
