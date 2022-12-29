@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="header-inner">
+        <a class="header__logo" href="{% url 'home' %}">
+            <h2>Литрес</h2>
+        </a>
+        <nav class="header__navigation">
+            <ul class="header__navigation__list">
+                <li class="header__navigation__list__item"><a href="{% url 'form_order' %}">Заказать</a></li>
+                {% if user.is_authenticated %}
+                    <a href=" {% url 'logout' %}">Выйти</a>
+                {% else %}
+                    <li class="header__navigation__list__item"><a href="{% url 'login' %}">Вход</a></li>
+                    <li class="header__navigation__list__item"><a href="{% url 'signup' %}">Регистрация</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
+</header>

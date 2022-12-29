@@ -1,10 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+    {% include 'firstapp/blocks/header.html' %}
+    
   <form method="POST">
       {% csrf_token %}
 <!--        {{form.username}}<br>-->

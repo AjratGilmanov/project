@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Italianno&family=Montserrat&family=Oxygen&family=Pinyon+Script&display=swap');
+
+@font-face {
+	font-family: 'brush script';
+	src: url('../fonts/brushscript.otf');
+}
+
+@font-face {
+	font-family: 'Wolfgang Amadeus Mozart';
+	src: url('../fonts/Wolfgang Amadeus Mozart.ttf');
+}
+
+
+* {
+	padding:0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family:'montserrat', sans-serif;
+}
+
+a {
+	text-decoration: none;
+	color:inherit;
+}
+
+button, input[type=submit] {
+	background:none;
+	border:none;
+	color:inherit;
+}
+
+ul, ol {
+	list-style:none;
+}
+
+h1, h2, h3, h5, h6 {
+	font-family: 'Wolfgang Amadeus Mozart', serif;
+}
+
+h2 {
+	font-size:54px;
+}
+
+h3 {
+	font-size:48px;
+}
+
+body {
+	background:#ffeeee;
+}
+
+
+.header {
+	background:black;
+	color:white;
+	padding:20px 130px;
+	font-size:18px;
+
+	&-inner {
+		display:flex;
+		align-items:center;
+		justify-content: space-between;
+	}
+
+	&__navigation__list {
+		display:flex;
+		gap:20px;
+
+		&__item {
+			display:flex;
+			flex-direction: column;
+			align-items: center;
+
+			&::after {
+				content:'';
+				display:block;
+				background:white;
+				width:100%;
+				height:1px;
+				border-radius: 10px;
+				position:relative;
+				top:4px;
+				transition:.3s;
+				opacity:0;
+			}
+
+			&:hover::after {
+				opacity:1;
+			}
+		}
+	}
+}
+
+.select_custom {
+	display:none;
+	
+}
+
+.filter_select {
+	position:relative;
+	display:inline-block;
+	cursor:default;
+	user-select:none;
+	width:200px;
+
+	&__list {
+		display:flex;
+		position:absolute;
+		flex-direction: column;
+		animation:.3s select_list_disappear ease-out;
+
+		max-height:0;
+		overflow-y:scroll;
+
+		&__item {
+			padding:15px;
+
+			&:hover {
+				background:#eee;
+			}
+		}
+	}
+
+	&-selected, &__list {
+		background:white;
+		font-size:16px;
+		width:100%;
+		transition: .3s;
+	}
+
+	&-selected {
+		position:relative;
+		display:flex;
+		align-items:center;
+		justify-content:space-between;
+		padding:15px;
+
+		&::after {
+			content:'';
+			display:block;
+			width:0;
+			height:0;
+			border:6px solid transparent;
+			border-top-color: black;
+		}
+	}
+
+
+	&-selected:hover + &__list,
+	&__list:hover {
+		max-height:400px;
+	}
+}
+
+.books-filter {
+	display:none;
+}
+
+
+.books_list {
+	display:flex;
+	gap:60px;
+	flex-wrap:wrap;
+
+	&__item {
+		max-width:300px;
+		border:2px solid #00000060;
+	}
+}
+
+.order_form__unlogined__login_link {
+	display:inline-block;
+	
+	&::after {
+		content:'';
+		display:block;
+		width:100%;
+		height:1px;
+		background:black;
+		position:relative;
+		top:4px;
+	}
+}
