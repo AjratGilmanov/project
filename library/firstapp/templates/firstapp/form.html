@@ -11,10 +11,12 @@
     
     {% if user.is_authenticated %}
     <form method="POST">
-        {% csrf_token %}
-        <tp>
-            {{form.as_p}}
-        </tp>
+        <div class="zakaz__form">
+            {% csrf_token %}
+            <tp>
+                {{form.as_p}}
+            </tp>
+        </div>
         <button type="submit">Press</button>
     </form>
     {% else %}

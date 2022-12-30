@@ -24,6 +24,8 @@
         {% endfor %}
       </select>
 
+
+    <div class="card">
       <ul class="books_list">
         {% for book in books %}
           <li class="book_list__item">
@@ -45,12 +47,14 @@
               {{ book.book_author.name }}
             </div>
             <div class="book_list__item__options">
-              <a href="/edit/{{book.id}}">Изменить</a>
-              <a href="/delete/{{book.id}}">Удалить</a>
+              <a class="btns" href="/edit/{{book.id}}">Изменить</a>
+              <a class="btns" href="/delete/{{book.id}}">Удалить</a>
             </div>
           </li>
         {% endfor %}
       </ul>
+    </div>
+
       {% if user.is_authenticated %}
         <a href="{% url 'add_book' %}">Добавить книгу</a>
       {% endif %}

@@ -42,7 +42,7 @@ h3 {
 }
 
 body {
-  background: #ffeeee;
+  background: #dddddd;
 }
 
 .header {
@@ -93,7 +93,9 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 200px;
+
+  width: max-content;
+  height: 70px;
 }
 .filter_select__list {
   display: flex;
@@ -160,4 +162,44 @@ body {
   background: black;
   position: relative;
   top: 4px;
+}
+
+
+.card{
+  background: #a588a8;
+  padding: 0px 50px 50px 10px;
+  width: max-content;
+  margin-right: 10px;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.btns{
+  border-radius: 25px;
+  width: max-content;
+  background-color: white;
+}
+
+.time__from, .time__to{
+  border-radius: 25px;
+}
+
+.BIGText{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  font-size: x-large;
+}
+
+.zakaz__form{
+  background: #a588a8;
+  padding: 20px 20px 20px 10px;
+  width: max-content;
+  border-radius: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.filter_select__list{
+  margin-bottom: 10px;
 }

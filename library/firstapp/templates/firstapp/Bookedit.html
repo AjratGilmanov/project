@@ -12,7 +12,9 @@
   
   <form method="post">
       {% csrf_token %}
-      {{ form.as_p }}
+      <div class="zakaz__form">
+        {{ form.as_p }}
+      </div>
       <input type="submit" value="Update">
   </form>
 </body>
