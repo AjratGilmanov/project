@@ -62,6 +62,6 @@ class Application(forms.ModelForm):
 class Form_zakaz(forms.Form):
     CHOICE_BOOK = [(i.id, i.book_name) for i in Book.objects.all()]
     name_book = forms.ChoiceField(choices=CHOICE_BOOK, label='Books', widget=forms.Select(attrs={'class':'select_custom'}))
-    time_from = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
-    time_to = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    time_from = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class':'time__from'}))
+    time_to = forms.DateField(widget=forms.DateInput(attrs={'type': 'date', 'class':'time__to'}))
     name = forms.CharField(max_length=255, label='Name')

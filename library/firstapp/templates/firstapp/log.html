@@ -11,9 +11,11 @@
   
   <form method="post">
     {% csrf_token %}
-    <tp>
-      {{form.as_p}}
-    </tp>
+    <div class="zakaz__form">
+      <tp>
+        {{form.as_p}}
+      </tp>
+    </div>
       <button type="submit">Press</button>
   </form>
 </body>
